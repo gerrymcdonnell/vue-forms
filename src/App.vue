@@ -39,7 +39,8 @@
                     <textarea
                             id="message"
                             rows="5"
-                            class="form-control"></textarea>
+                            class="form-control"
+                            v-model="message"></textarea>
                 </div>
             </div>
             <div class="row">
@@ -130,7 +131,8 @@ export default {
         email:'',
         password:'',
         age:99
-      }
+      },
+      message:'new message'
     }
   }
 }
