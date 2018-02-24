@@ -89,11 +89,14 @@
             <div class="row">
                 <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 from-group">
                     <label for="priority">Priority</label>
-                    <select
-                            id="priority"
-                            class="form-control">
-                        <option></option>
+
+                    <!-- select using array from vue properities
+                    note that medium is set to be default
+                    -->
+                    <select id="priority" class="form-control" v-model="selectedPriority">
+                        <option v-for="priority in priorities">{{priority}}</option>
                     </select>
+
                 </div>
             </div>
             <hr>
@@ -125,7 +128,7 @@
                             </li>
                         </ul>
                         <p>Gender:{{gender}}</p>
-                        <p>Priority:</p>
+                        <p>Priority:{{selectedPriority}}</p>
                         <p>Switched:</p>
                     </div>
                 </div>
@@ -145,7 +148,10 @@ export default {
       },
       message:'new message',
       sendMail:[],
-      gender:'Male'
+      gender:'Male',
+      //default for select
+      selectedPriority:'high',
+      priorities:['high','medium','low']
     }
   }
 }
